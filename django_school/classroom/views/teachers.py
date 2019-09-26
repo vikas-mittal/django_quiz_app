@@ -146,16 +146,16 @@ def question_add(request, pk):
         if form.is_valid():
             question = form.save(commit=False)
             question.quiz = quiz
-            print(form.topics.widget)
+            # print(form.topics.widget)
             # question.subject = subject
-            question.topic = form.cleaned_data.get('topics')
+            # question.topic = form.cleaned_data.get('topics')
             question.save()
             messages.success(request, 'You may now add answers/options to the question.')
             return redirect('teachers:question_change', quiz.pk, question.pk)
     else:
         print("\n\n\n yhan pr h ye\n\n\n")
         print(request, pk, quiz)
-        form = QuestionFormWithoutPost()
+        form = QuestionForm()
         # print(form['topics'].name)
 
     return render(request, 'classroom/teachers/question_add_form.html', {'quiz': quiz, 'form': form})

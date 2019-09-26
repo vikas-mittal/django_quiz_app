@@ -63,21 +63,23 @@ class QuestionForm(forms.ModelForm):
 
 
     #
-    # iquery = Topics.objects.values_list('topic_name', flat=True)
+    iquery = Topics.objects.values_list('topic_name', flat=True)
     # iquery2 = Topics.objects.values_list('id', flat=True)
     #
     # iquery3 = Topics.objects.values()
     # print(iquery)
     # print(iquery2)
     # print(iquery3)
-    # iquery_choices = [(id,id) for id in iquery]
-    # print(iquery_choices)
-    # topics = forms.ChoiceField(choices=iquery_choices,label="", initial='', required=True, widget=forms.Select())
-
+    iquery_choices = [(id,id) for id in iquery]
+    print(iquery_choices)
+    topics = forms.ChoiceField(choices=iquery_choices,label="", initial='', required=True, widget=forms.Select())
+	
+	'''
     topics = forms.ModelChoiceField(
         queryset=Topics.objects.values_list('topic_name', flat=True),
         required=True,
         empty_label=None)
+		'''
 
     class Meta:
         model = Question
