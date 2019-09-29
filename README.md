@@ -18,8 +18,12 @@ The project will be available at 127.0.0.1:8000.
 
 # Todo:
 Projection completion
+
 Documentation
+
 Testing
+
 Security
+
 Include Rest Api
 
